@@ -9,3 +9,4 @@ starlette==0.41.3
 typing_extensions==4.12.2
 websockets==14.1
 uvicorn
+jinja2
