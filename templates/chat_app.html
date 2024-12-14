@@ -329,8 +329,22 @@
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-	const ws = new WebSocket("wss://app-qdym.onrender.com/ws");
+    const ws = new WebSocket("wss://app-qdym.onrender.com/ws");
+    socket.onopen = () => {
+    console.log("WebSocket connection established.");
+};
 
+socket.onmessage = (event) => {
+    console.log("Message received: ", event.data);
+};
+
+socket.onclose = () => {
+    console.log("WebSocket connection closed.");
+};
+
+socket.onerror = (error) => {
+    console.error("WebSocket error: ", error);
+};
     const input = document.querySelector(".chat-message input");
     const chatHistory = document.querySelector(".chat-history ul");
     
